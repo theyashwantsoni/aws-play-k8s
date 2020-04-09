@@ -113,12 +113,11 @@ To autoscale the deployment (autoscaling/v2beta2):
 First delete previously exposed service.
 
 kubectl delete service json-server-api-service 
-
 kubectl create -f hpa.yaml
 
 Again expose the service.
-
 Now to see whole scenario use
+
 watch kubectl get all
 
 &  kubectl top pods
