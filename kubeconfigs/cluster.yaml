@@ -1,0 +1,29 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EUXdPREV4TkRBME5sb1hEVE13TURRd05qRXhOREEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTWtrCk0xMTZya1Q3cmdXTG9YdE1ROC9BSzV5ckhtbVBBRzZsbW1yOG55Qlc0d2JpcFdJcDlKZDc1NjhTQ0RnM0htOGgKMERIOFcxMFZmY3BidEd2S3ZLSDRuRnZlLytRNnVid2dXT3RKdzU1VkdwWGFzeEo3UUF6NElnaE05SXlGaURTZQpNdndiVERNKzBTcHc0dXZuV05ZRUdreUlrdnBPa0VuZ0hhQkJrVGFUTno2Z2VqRy8wNnhydGNmTmtHREo3K2VVCkhGa0JHaWNqcE5iR3dKNlkzZVo2Ymh6aFhYUzFhWS93Vk9wb29SdnpadlJxM0plalFURVd3YkkvUjNqYWt5b1kKYU9GZnRtdVNXY1NqQVdGMmxDQ3F5bjQvcWtVWWdTMk45SUU2TkJSVUNvc29kUFhCVmJtY215OFJ5VXI5aE1oUgo1NmFBNTBIT3kxYlJRZStSSWJrQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFLdEZOek1tclg5RUczYUpSUEJPSTBFbFNNOWoKMTJudnExRVBtRmxxYi9LWU45REYxQjlGQ3VSNkhBUXd4K3dRMTRsQXVYcmVNT254WVBxaVpiVCtyWUpVU0UzbwpFOHRVdGZ1K0JESko4amlUZDZpWFgxc3R1cHJNd1VkNGVRTjRBUHFIYnF3SE5pMHppWW1IVzk1YS9LMVBsbTZ5CjVsZ3k1OWREY1ZGUlF5WnRxVURjUE80dFVxRjJ5NTZzeFM3ZVZqOFZ0c2hnWitBOEg3VkYyNURQOXRMdVZLVm8KVVJPc3ByQ2txalZSM2hPYkZTODlDVkZDeEZKSlZpWGdqRE5XcGg5UmdRYjNDRVBINWdqRjlmVC9IaGt6ajY4dApNUy9iT0NmalJ1TmdvSEpiTXl1bjJ4VHUyeE1RVTh1T3p1YXphUFFTeVE5cmdiVTdXZEhzUnIwdjlzbz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://0860BFF247180A4314086879E91387C3.sk1.us-east-2.eks.amazonaws.com
+  name: first-eks.us-east-2.eksctl.io
+contexts:
+- context:
+    cluster: first-eks.us-east-2.eksctl.io
+    user: aws-test@first-eks.us-east-2.eksctl.io
+  name: aws-test@first-eks.us-east-2.eksctl.io
+current-context: aws-test@first-eks.us-east-2.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: aws-test@first-eks.us-east-2.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - token
+      - -i
+      - first-eks
+      command: aws-iam-authenticator
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_DEFAULT_REGION
+        value: us-east-2

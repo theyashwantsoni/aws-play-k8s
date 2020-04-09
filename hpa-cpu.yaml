@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: json-server-api
+spec:
+  maxReplicas: 15
+  minReplicas: 10
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: json-server-api
+  targetCPUUtilizationPercentage: 50

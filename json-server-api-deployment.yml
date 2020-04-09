@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: json-server-api
+ labels:
+  app: json-server-api
+spec:
+ replicas: 10
+ selector:
+  matchLabels:
+   app: json-server-api
+ template:
+  metadata:
+   labels:
+    app: json-server-api
+  spec:
+   containers:
+   - name: json-server-api
+     image: theyashwantsoni/json-server-api:1.0.0
+     ports:
+     - containerPort: 3000
+     resources:
+       limits:
+         cpu: 0.5
+         memory: 0.6
+       requests:
+         cpu: 0.5
+         memory: 0.6
